@@ -7,16 +7,16 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Fantastic Mobiusor' });
 });
 
-router.get('/strategy/:name', function(req, res, next) {
-  var name = req.params.name;
+router.get('/strategy', function(req, res, next) {
+  var name = req.query.game;
   var data = parser.getJsonData();
   res.render('strategy', { title: name + 'Game Strategy', content: data });
 });
 
-router.get('/file/:name', function (req, res, next) {
+router.get('/file', function (req, res, next) {
 
   var options = {
-    root: './public/files/',
+    root: './public/files/' + req.query.game + '/',
     dotfiles: 'deny',
     headers: {
         'x-timestamp': Date.now(),
@@ -24,7 +24,7 @@ router.get('/file/:name', function (req, res, next) {
     }
   };
 
-  var fileName = req.params.name;
+  var fileName = req.query.game + '.gba';
   res.sendFile(fileName, options, function (err) {
     if (err) {
       console.log(err);
