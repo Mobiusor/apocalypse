@@ -1,0 +1,28 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+span.item {
+	margin-left: 10px
+}
+
+span.item-header {
+	/*font-weight: bold;*/
+	font-size: 16px;
+	color: #62BCDF;
+}
+
+span.item-content {
+	font-size: 14px;
+}
+
+p.battle-field-header {
+	font-size: 18px;
+	font-weight: bold;
+
+}

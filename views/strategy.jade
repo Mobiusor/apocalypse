@@ -1,0 +1,51 @@
+extends layout
+
+block content
+	each chapter in content
+		h2 Chapter#{chapter.id} - #{chapter.name}
+		hr
+		ul
+		each battleField in chapter.battleFields
+			li
+				p.battle-field-header Battle Field #{battleField.id} - #{battleField.name}
+				if battleField.victoryCondition
+					p
+						span.item-header 胜利条件
+						span.item-content : #{battleField.victoryCondition}
+				if battleField.defeatCondition
+					p
+						span.item-header 失败条件
+						span.item-content : #{battleField.defeatCondition}
+				if battleField.maxTurns
+					p
+						span.item-header MVP限制回合数
+						span.item-content : #{battleField.maxTurns}
+				if battleField.members
+					p
+						span.item-header 我方配置
+						span.item-content : #{battleField.members}
+				if battleField.cardCount
+					p
+						span.item-header 可选择卡片数
+						span.item-content : #{battleField.cardCount}
+				if battleField.hideItems
+					p
+						span.item-header 隐藏道具
+						span.item-content : #{battleField.hideItems}
+				if battleField.enemyEquipment
+					p
+						span.item-header 敌人装备
+						span.item-content : #{battleField.enemyEquipment}
+				if battleField.equipment
+					p
+						span.item-header 我方默认装备
+						span.item-content : #{battleField.equipment}
+				if battleField.cards
+					p
+						span.item-header 我方卡片
+						span.item-content : #{battleField.cards}
+				if battleField.newCards
+					p
+						span.item-header 通关入手卡片
+						span.item-content : #{battleField.newCards}
+				p #{battleField.body}
